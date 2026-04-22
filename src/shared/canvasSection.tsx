@@ -8,10 +8,8 @@ type CanvasSectionProps = {
 export const CanvasSection = ({ children }: CanvasSectionProps) => {
     return (
         <Canvas camera={{ position: [0, 0, 4.5], fov: 45 }}>
-            <ambientLight intensity={0.75} />
-            <directionalLight position={[3, 3, 4]} intensity={1.4} />
-            <directionalLight position={[-3, -2, 2]} intensity={0.5} />
-            <pointLight position={[0, 0, 3]} intensity={0.4} />
+            <ambientLight intensity={1} />
+            <directionalLight position={[3, 3, 4]} intensity={7.5} />
             {children}
         </Canvas>
     )
