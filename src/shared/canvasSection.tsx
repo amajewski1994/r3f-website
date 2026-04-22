@@ -1,12 +1,17 @@
-import { Canvas } from '@react-three/fiber'
-import { PerspectiveCamera } from '@react-three/drei'
+import { Canvas } from "@react-three/fiber"
+import type { ReactNode } from "react"
 
-export function CanvasSection({ children }: { children: React.ReactNode }) {
+type CanvasSectionProps = {
+    children: ReactNode
+}
+
+export const CanvasSection = ({ children }: CanvasSectionProps) => {
     return (
-        <Canvas camera={{ position: [0, 0, 5] }}>
-            <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-            <ambientLight intensity={0.6} />
-            <directionalLight position={[5, 5, 5]} intensity={1} />
+        <Canvas camera={{ position: [0, 0, 4.5], fov: 45 }}>
+            <ambientLight intensity={0.75} />
+            <directionalLight position={[3, 3, 4]} intensity={1.4} />
+            <directionalLight position={[-3, -2, 2]} intensity={0.5} />
+            <pointLight position={[0, 0, 3]} intensity={0.4} />
             {children}
         </Canvas>
     )
