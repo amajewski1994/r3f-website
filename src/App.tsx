@@ -1,31 +1,21 @@
-import { useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import type { Mesh } from 'three'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import Section1 from './components/sections/Section1'
+import Section2 from './components/sections/Section2'
+import Section3 from './components/sections/Section3'
 
-function Box() {
-  const meshRef = useRef<Mesh>(null!)
-
-  useFrame((_, delta) => {
-    meshRef.current.rotation.x += delta
-    meshRef.current.rotation.y += delta * 0.7
-  })
-
-  return (
-    <mesh ref={meshRef}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color="orange" />
-    </mesh>
-  )
-}
+// Canvas Components for each section
 
 export default function App() {
   return (
-    <div className="h-screen w-screen">
-      <Canvas camera={{ position: [0, 0, 5] }}>
-        <ambientLight intensity={1} />
-        <directionalLight position={[3, 3, 3]} />
-        <Box />
-      </Canvas>
+    <div className="flex min-h-screen flex-col bg-background text-text">
+      <Header />
+      <main className="flex-1">
+        <Section1 />
+        <Section2 />
+        <Section3 />
+      </main>
+      <Footer />
     </div>
   )
 }
